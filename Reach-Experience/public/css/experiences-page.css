@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.experiences-top {
+    background: #000;
+    text-align: center;
+}
+
+.experiences {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.experiences h1 {
+    font-size: 65px;
+    padding-top: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+}
+
+.experiences p {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    width: 40%;
+    margin: 0 auto;
+    line-height: 30px;
+    padding: 15px 0px 40px 0px;
+}
+
+/* experiences galley section */
+
+
+.gallery {
+    background-color: #000;
+}
+
+.g-pro {
+    display: flex;
+}
+
+.g-box {
+    width: 31vw;
+    overflow: hidden;
+}
+
+#g-box-h6 {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    padding: 16px 0px;
+}
+
+.g-box:nth-child(1) {
+    margin: 0px 25px 0px 18px;
+}
+
+.g-box:nth-child(3) {
+    margin: 0px 18px 0px 25px;
+}
+
+.gallery-1 img {
+    width: 31.4vw;
+    height: 60vh;
+}
+
+.gallery-1 {
+    overflow: hidden;
+
+}
+
+.gallery-2 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-2 {
+    padding-top: 1em;
+}
+
+.gallery-3 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-3 {
+    padding-top: 1em;
+}
+
+.gallery-4 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-4 {
+    padding-top: 1em;
+}
+
+.gallery-5 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-5 {
+    padding-top: 1em;
+}
+
+.gallery-6 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-6 {
+    padding-top: 1em;
+}
+
+.gallery-7 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-7 {
+    padding-top: 1em;
+}
+
+.gallery-8 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-8 {
+    padding-top: 1em;
+}
+
+.gallery-9 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-9 {
+    padding-top: 1em;
+}
+
+.gallery-10 img {
+    width: 31.4vw;
+    height: 55vh;
+}
+
+.gallery-10 {
+    padding-top: 1em;
+}
+
+
+/* responsive */
+
+
+@media only screen and (max-width: 768px) {
+
+    .logo img {
+        max-height: 55px;
+        max-width: 200px;
+        margin: 3rem 4rem;
+    }
+
+    .experiences h1 {
+        font-size: 35px;
+    }
+
+    .experiences p {
+        font-size: 16px;
+        word-spacing: 2px;
+        line-height: 20px;
+        padding: 5px 0px 25px 0px;
+    }
+
+    .g-pro {
+        flex-wrap: wrap;
+    }
+
+    .box1 {
+        width: 46%;
+    }
+
+    .gallery-1 img {
+        width: 50vw;
+    }
+
+    .gallery-2 img {
+        width: 50vw;
+    }
+
+    .gallery-3 img {
+        width: 50vw;
+    }
+
+    .gallery-4 img {
+        width: 50vw;
+    }
+
+    .gallery-5 img {
+        width: 50vw;
+    }
+
+    .gallery-6 img {
+        width: 50vw;
+    }
+
+    .gallery-7 img {
+        width: 50vw;
+    }
+
+    .gallery-8 img {
+        width: 50vw;
+    }
+
+    .gallery-9 img {
+        width: 50vw;
+    }
+
+    .gallery-10 img {
+        width: 50vw;
+    }
+
+    footer a:nth-child(3) {
+        padding: 4px 60px;
+        border-radius: 8px;
+    }
+
+    footer p {
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 1px;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    .experiences {
+        width: 80%;
+    }
+
+
+    .experiences h1 {
+        padding-top: 20px;
+        font-size: 30px;
+    }
+
+    .experiences p {
+        padding: 10px 0px 25px 0px;
+        width: 100%;
+    }
+
+    .box1 {
+        width: 44%;
+    }
+
+    .gallery-1 img {
+        height: 30vh;
+    }
+
+    .gallery-2 img {
+        height: 30vh;
+    }
+
+    .gallery-3 img {
+        height: 30vh;
+    }
+
+    .gallery-4 img {
+        height: 30vh;
+    }
+
+    .gallery-5 img {
+        height: 30vh;
+    }
+
+    .gallery-6 img {
+        height: 30vh;
+    }
+
+    .gallery-7 img {
+        height: 30vh;
+    }
+
+    .gallery-8 img {
+        height: 30vh;
+    }
+
+    .gallery-9 img {
+        height: 30vh;
+    }
+
+    .gallery-10 img {
+        height: 30vh;
+    }
+
+    footer a:nth-child(3) {
+        font-size: 16px;
+        padding: 4px 50px;
+    }
+
+    footer p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+}
