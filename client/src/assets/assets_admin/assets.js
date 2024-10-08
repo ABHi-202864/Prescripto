@@ -13,17 +13,17 @@ import earning_icon from './earning_icon.svg'
 import patients_icon from './patients_icon.svg'
 
 export const assets = {
-    add_icon,
-    admin_logo,
-    appointment_icon,
-    cancel_icon,
-    doctor_icon,
-    upload_area,
-    home_icon,
-    patients_icon,
-    people_icon,
-    list_icon,
-    tick_icon,
-    appointments_icon,
-    earning_icon
+  add_icon,
+  admin_logo,
+  appointment_icon,
+  cancel_icon,
+  doctor_icon,
+  upload_area,
+  home_icon,
+  patients_icon,
+  people_icon,
+  list_icon,
+  tick_icon,
+  appointments_icon,
+  earning_icon
 }
