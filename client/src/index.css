@@ -5,3 +5,8 @@
 .active hr {
   @apply block;
 }
+
+/* FOR SCROLL -- EFFECTS */
+::-webkit-scrollbar {
+  @apply hidden;
+}
