@@ -10,7 +10,7 @@ const NavBar = () => {
 
   return (
     <div className='flex items-center justify-between text-sm py-4 border-b border-b-gray-400'>
-      <img onClick={() => navigate("/")} className='w-44 cursor-pointer' src={assets.logo} alt="" />
+      <img className='w-44 cursor-pointer' onClick={() => navigate("/")} src={assets.logo} alt="" />
       <ul className='hidden md:flex items-start gap-10 font-medium'>
         <NavLink to="/">
           <li className='py-1'>HOME</li>
@@ -38,15 +38,15 @@ const NavBar = () => {
               <img className='w-2.5' src={assets.dropdown_icon} alt="" />
               <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
                 <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
-                  <p onClick={() => navigate("/myProfile")} className='hover:text-black cursor-pointer'>My Profile</p>
+                  <p className='hover:text-black cursor-pointer' onClick={() => navigate("/myProfile")}>My Profile</p>
                   <hr />
-                  <p onClick={() => navigate("/myAppointments")} className='hover:text-black cursor-pointer'>My Appointments</p>
+                  <p className='hover:text-black cursor-pointer' onClick={() => navigate("/myAppointments")}>My Appointments</p>
                   <hr />
-                  <p className='hover:text-black cursor-pointer'>Logout</p>
+                  <p className='hover:text-black cursor-pointer' onClick={() => setToken(false)}>Logout</p>
                 </div>
               </div>
             </div>
-            : <button onClick={() => navigate("/login")} className='bg-primary text-white px-8 py-3 rounded-full font-light md:block'>Create account</button>
+            : <button className='bg-primary text-white px-8 py-3 rounded-full font-light md:block' onClick={() => navigate("/login")}>Create account</button>
         }
       </div>
     </div>
