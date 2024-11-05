@@ -3,6 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
+import adminRouter from "./routes/adminRoute.js";
 
 // APP CONFIGURATION
 const app = express();
@@ -16,10 +17,7 @@ app.use(cors());
 
 
 // API END-POINT
-app.get("/", (req, res) => {
-  res.send("abhi");
-});
-
+app.use("/api/admin", adminRouter);
 
 // APP LISTEN
 app.listen(port, () => console.log(`DOKING PORT : ${port}`));
