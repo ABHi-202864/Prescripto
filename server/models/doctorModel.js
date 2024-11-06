@@ -37,7 +37,7 @@ const doctorSchema = new Schema({
   },
   available: {
     type: Boolean,
-    required: true,
+    default: true,
   },
   fees: {
     type: Number,
@@ -57,4 +57,6 @@ const doctorSchema = new Schema({
   }
 }, { minimize: false });
 
-export default doctorModel = model.doctor || model("doctor", doctorSchema);
+const doctorModel = model.doctor || model("doctor", doctorSchema);
+
+export default doctorModel;

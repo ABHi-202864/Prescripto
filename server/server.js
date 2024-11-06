@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 
-// API END-POINT
+// API END-POINTS
 app.use("/api/admin", adminRouter);
 
 // APP LISTEN
