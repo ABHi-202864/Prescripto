@@ -1,5 +1,6 @@
 import doctorModel from "../models/doctorModel.js";
 
+// API FOR DOCTOR AVAILABLITY
 const changeAvailablity = async (req, res) => {
   try {
     const { docId } = req.body;
@@ -13,6 +14,7 @@ const changeAvailablity = async (req, res) => {
   }
 }
 
+// API FOR ALL DOCTOR LIST
 const doctorList = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select(["-password", "-email"]);

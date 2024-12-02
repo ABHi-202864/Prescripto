@@ -86,7 +86,7 @@ const loginAdmin = async (req, res) => {
   }
 }
 
-// API TO ALL DOCTORS LIST FOR ADMIN PANEL
+// API FOR ALL DOCTORS LIST FOR ADMIN PANEL
 const allDoctors = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select("-password");
