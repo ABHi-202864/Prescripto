@@ -9,15 +9,15 @@ const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.json({ success: false, message: "Missing Details" });
+      return res.status(400).json({ success: false, message: "Missing Details" });
     }
     // VALIDATEING EMAIL
     if (!validator.isEmail(email)) {
-      return res.json({ success: false, message: "Enter a valid Email" });
+      return res.status(400).json({ success: false, message: "Enter a valid Email" });
     }
     // VALIDATEING PASSWORD
     if (password.length < 8) {
-      return res.json({ success: false, message: "Enter a strong Password" });
+      return res.status(400).json({ success: false, message: "Enter a strong Password" });
     }
 
     // HASHING USER PASSWORD
@@ -38,7 +38,7 @@ const registerUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 
@@ -63,7 +63,7 @@ const loginUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.status(404).json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 
