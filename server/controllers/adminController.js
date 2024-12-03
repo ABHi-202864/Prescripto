@@ -12,22 +12,22 @@ const addDoctor = async (req, res) => {
 
     // cheking for all data to add doctor
     if (!name || !email || !password || !speciality || !degree || !experience || !about || !fees || !address) {
-      return res.json({ success: false, message: "Missing Details" });
+      return res.status(400).json({ success: false, message: "Missing Details" });
     }
 
     // Validate email format
     if (!validator.isEmail(email)) {
-      return res.json({ success: false, message: "Please enter a valid email" });
+      return res.status(400).json({ success: false, message: "Please enter a valid email" });
     }
 
     // Validate strong password
     if (password.length < 6) {
-      return res.json({ success: false, message: "Please enter a strong password" });
+      return res.status(400).json({ success: false, message: "Please enter a strong password" });
     }
 
     // Check if image is uploaded
     if (!imageFile) {
-      return res.json({ success: false, message: "Image file is missing" });
+      return res.status(400).json({ success: false, message: "Image file is missing" });
     }
 
     // Hash the password
@@ -39,8 +39,9 @@ const addDoctor = async (req, res) => {
     try {
       const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: "image" });
       imageUrl = imageUpload.secure_url;
+
     } catch (uploadError) {
-      return res.json({ success: false, message: "Image upload failed: " + uploadError.message });
+      return res.status(500).json({ success: false, message: "Image upload failed: " + uploadError.message });
     }
 
     const doctorData = {
@@ -60,11 +61,11 @@ const addDoctor = async (req, res) => {
     const newDoctor = new doctorModel(doctorData);
     await newDoctor.save();
 
-    res.json({ success: true, message: "Doctor Added" });
+    res.status(201).json({ success: true, message: "Doctor Added" });
 
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 
@@ -75,14 +76,14 @@ const loginAdmin = async (req, res) => {
 
     if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
-      res.json({ success: true, token });
+      res.status(200).json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid Credentials" });
+      res.status(401).json({ success: false, message: "Invalid Credentials" });
     }
 
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 
@@ -90,11 +91,11 @@ const loginAdmin = async (req, res) => {
 const allDoctors = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select("-password");
-    res.json({ success: true, doctors })
+    res.status(200).json({ success: true, doctors });
 
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 }
 
