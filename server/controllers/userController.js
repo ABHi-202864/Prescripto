@@ -12,15 +12,15 @@ const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({ success: false, message: "Missing Details" });
+      return res.json({ success: false, message: "Missing Details" });
     }
     // VALIDATEING EMAIL
     if (!validator.isEmail(email)) {
-      return res.status(400).json({ success: false, message: "Enter a valid Email" });
+      return res.json({ success: false, message: "Enter a valid Email" });
     }
     // VALIDATEING PASSWORD
     if (password.length < 8) {
-      return res.status(400).json({ success: false, message: "Enter a strong Password" });
+      return res.json({ success: false, message: "Enter a strong Password" });
     }
 
     // HASHING USER PASSWORD
@@ -41,7 +41,7 @@ const registerUser = async (req, res) => {
 
   } catch (error) {
     console.log(error);
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 }
 
@@ -52,7 +52,7 @@ const loginUser = async (req, res) => {
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ success: false, message: "User does not exist" });
+      return res.json({ success: false, message: "User does not exist" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
@@ -61,11 +61,11 @@ const loginUser = async (req, res) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       res.json({ success: true, token });
     } else {
-      res.status(401).json({ success: false, message: "Invalid Credentials" });
+      res.json({ success: false, message: "Invalid Credentials" });
     }
 
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 }
 
@@ -75,10 +75,10 @@ const getProfile = async (req, res) => {
     const { userId } = req.body;
     const userData = await userModel.findById(userId).select("-password");
 
-    res.status(200).json({ success: true, userData });
+    res.json({ success: true, userData });
 
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 }
 
@@ -89,7 +89,7 @@ const updateProfile = async (req, res) => {
     const imageFile = req.file;
 
     if (!name || !phone || !address || !dob || !gender) {
-      return res.status(400).json({ success: false, message: "Data Missing" });
+      return res.json({ success: false, message: "Data Missing" });
     }
 
     await userModel.findByIdAndUpdate(userId, { name, phone, address: JSON.parse(address), dob, gender });
@@ -102,10 +102,10 @@ const updateProfile = async (req, res) => {
       await userModel.findByIdAndUpdate(userId, { image: imageURL });
     }
 
-    res.status(200).json({ success: true, message: "Profile Updated" });
+    res.json({ success: true, message: "Profile Updated" });
 
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 }
 
@@ -116,7 +116,7 @@ const bookAppointment = async (req, res) => {
     const docData = await doctorModel.findById(docId).select("-password");
 
     if (!docData.available) {
-      return res.status(409).json({ success: false, message: "Doctor Not Available" });
+      return res.json({ success: false, message: "Doctor Not Available" });
     }
 
     let slots_booked = docData.slots_booked;
@@ -124,7 +124,7 @@ const bookAppointment = async (req, res) => {
     // CHECKING FOR SLOT AVAILABLITY
     if (slots_booked[slotDate]) {
       if (slots_booked[slotDate].includes(slotTime)) {
-        return res.status(409).json({ success: false, message: "Slot Not Available" });
+        return res.json({ success: false, message: "Slot Not Available" });
       } else {
         slots_booked[slotDate].push(slotTime);
       }
@@ -157,13 +157,25 @@ const bookAppointment = async (req, res) => {
     // SAVE NEW SLOTS DATA IN docData ||  Update doctor's slotsBooked
     await doctorModel.findByIdAndUpdate(docId, { slots_booked });
 
-    res.status(201).json({ success: true, message: "Appointment Booked" });
+    res.json({ success: true, message: "Appointment Booked" });
 
   } catch (error) {
-    console.log(error)
-    res.status(500).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 
 }
 
-export { registerUser, loginUser, getProfile, updateProfile, bookAppointment };
+// API FOR GET USER APPOINTMENTS FOR FRONTEND myApppiniment page 
+const listAppointment = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const appointments = await appointmentModel.find({ userId });
+
+    res.json({ success: true, appointments });
+
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+}
+
+export { registerUser, loginUser, getProfile, updateProfile, bookAppointment, listAppointment };
