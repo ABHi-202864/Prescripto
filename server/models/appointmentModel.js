@@ -9,7 +9,7 @@ const appointmentSchema = new Schema({
     type: String,
     required: true,
   },
-  slotData: {
+  slotDate: {
     type: String,
     required: true,
   },
