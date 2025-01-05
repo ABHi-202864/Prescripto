@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
+import appointmentModel from "../../../server/models/appointmentModel";
 
 export const AdminContext = createContext();
 
@@ -16,7 +17,6 @@ const AdminContextProvider = (props) => {
       const { data } = await axios.post(backendUrl + "/api/admin/all-doctors", {}, { headers: { aToken } });
       if (data.success) {
         setDoctors(data.doctors);
-        console.log(data.doctors);
       } else {
         toast.error(data.message);
       }
@@ -56,12 +56,29 @@ const AdminContextProvider = (props) => {
     }
   }
 
+  const cancelAppointment = async (appointmentId) => {
+    try {
+      const { data } = await axios.post(backendUrl + "/api/admin/cancel-appointment", { appointmentId }, { headers: { aToken } });
+
+      if (data.success) {
+        toast.success(data.message);
+        getAllAppointments();
+      } else {
+        toast.error(data.message);
+      }
+
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
   const value = {
     aToken, setAToken,
     backendUrl, doctors,
     getAllDoctors, changeAvailablity,
     appointments, setAppointments,
     getAllAppointments,
+    cancelAppointment,
   }
 
   return (
