@@ -1,7 +1,6 @@
 import axios from "axios";
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
-import appointmentModel from "../../../server/models/appointmentModel";
 
 export const AdminContext = createContext();
 
@@ -9,6 +8,7 @@ const AdminContextProvider = (props) => {
   const [aToken, setAToken] = useState(localStorage.getItem("aToken") ? localStorage.getItem("aToken") : "");
   const [doctors, setDoctors] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [dashData, setDashData] = useState();
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -72,6 +72,22 @@ const AdminContextProvider = (props) => {
     }
   }
 
+  // API TO GET DASHBORD DATA FOR ADMIN PANEL
+  const getDashData = async () => {
+    try {
+      const { data } = await axios.get(backendUrl + "/api/admin/dashboard", { headers: { aToken } });
+
+      if (data.success) {
+        setDashData(data.dashData);
+      } else {
+        toast.error(data.message);
+      }
+
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
   const value = {
     aToken, setAToken,
     backendUrl, doctors,
@@ -79,6 +95,7 @@ const AdminContextProvider = (props) => {
     appointments, setAppointments,
     getAllAppointments,
     cancelAppointment,
+    dashData, getDashData,
   }
 
   return (
