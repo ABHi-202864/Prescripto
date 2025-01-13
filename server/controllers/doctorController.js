@@ -53,4 +53,14 @@ const loginDoctor = async (req, res) => {
   }
 }
 
+// API TO GET DOCTOR APPOINTMENTS FOR DOCTOR PANEL
+const appointmentsDoctor = async (req, res) => {
+  try {
+    
+
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+}
+
 export { changeAvailablity, doctorList, loginDoctor };
