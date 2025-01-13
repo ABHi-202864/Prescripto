@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import { assets } from "../assets/assets_admin/assets";
 import { AdminContext } from '../context/AdminContext';
 import axios from "axios";
 import { toast } from "react-toastify";
+import { DoctorContext } from '../context/DoctorContext';
 
 const Login = () => {
   const [state, setState] = useState("Admin");
@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const { setAToken, backendUrl } = useContext(AdminContext);
+  const { setDToken } = useContext(DoctorContext);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -20,14 +21,24 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem("aToken", data.token);
           setAToken(data.token);
+
         } else {
           toast.error(data.message);
         }
+
       } else {
+        const { data } = await axios.post(backendUrl + "/api/doctor/login", { email, password });
+        if (data.success) {
+          localStorage.setItem("dToken", data.token);
+          setDToken(data.token);
+
+        } else {
+          toast.error(data.message);
+        }
 
       }
     } catch (error) {
-
+      toast.error(error.message);
     }
   }
 
@@ -46,7 +57,8 @@ const Login = () => {
         <button className='bg-primary text-white w-full p-2 rounded-md text-base mt-2'>Login</button>
         {
           state === "Admin" ?
-            <p>Doctor Login? <span className='text-primary cursor-pointer underline' onClick={() => setState("Doctor")}>Click here</span></p> :
+            <p>Doctor Login? <span className='text-primary cursor-pointer underline' onClick={() => setState("Doctor")}>Click here</span></p>
+            :
             <p>Admin Login? <span className='text-primary cursor-pointer underline' onClick={() => setState("Admin")}>Click here</span></p>
         }
       </div>
