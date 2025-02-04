@@ -7,6 +7,7 @@ import adminRouter from "./routes/adminRoute.js";
 import doctorRouter from "./routes/doctorRoute.js";
 import userRouter from "./routes/userRoute.js";
 
+
 // APP CONFIGURATION
 const app = express();
 const port = process.env.PORT || 4000;
