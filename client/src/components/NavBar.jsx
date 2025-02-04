@@ -49,7 +49,7 @@ const NavBar = () => {
                   <hr />
                   <p className='hover:text-black cursor-pointer' onClick={() => navigate("/myAppointments")}>My Appointments</p>
                   <hr />
-                  <p onClick={() => window.open("/admin", "_blank", "noopener,noreferrer")} className='hover:text-black cursor-pointer'>Admin Panel</p>
+                  <p onClick={() => window.open("https://prescripto-admin-s21b.onrender.com", "_blank", "noopener,noreferrer")} className='hover:text-black cursor-pointer'>Admin Panel</p>
                   <hr />
                   <p className='hover:text-black cursor-pointer' onClick={logout}>Logout</p>
                 </div>
