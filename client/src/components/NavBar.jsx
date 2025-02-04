@@ -49,14 +49,6 @@ const NavBar = () => {
                   <hr />
                   <p className='hover:text-black cursor-pointer' onClick={() => navigate("/myAppointments")}>My Appointments</p>
                   <hr />
-                  <a href="https://prescripto-admin-s21b.onrender.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className='hover:text-black cursor-pointer'
-                  >
-                    Admin Panel
-                  </a>
-                  <hr />
                   <p className='hover:text-black cursor-pointer' onClick={logout}>Logout</p>
                 </div>
               </div>
