@@ -22,7 +22,6 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
   - Prescription refill requests
 
 - **Virtual Clinic**
-  - Secure video consultations
   - Wait room functionality
   - File sharing for medical documents
   - Post-consultation feedback system
