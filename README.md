@@ -48,7 +48,8 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
 - MongoDB 🍃
 - JWT Authentication 🔐
 
- // -- // 
+***
+---
 
 # Prescripto 🩺 | My Practice Project
 
