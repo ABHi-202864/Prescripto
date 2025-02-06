@@ -57,15 +57,55 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
 - MongoDB 🍃
 - JWT Authentication 🔐
 
-## Getting Started 🚀
+# Prescripto 🩺 | My Practice Project
 
-### Prerequisites
-- Node.js v18+
-- npm v9+
+**A full-stack doctor booking platform built for learning purposes**
 
-### Installation
-1. Clone repository:
+**Prescripto** is my practice project to learn full-stack development by building a complete healthcare appointment system. While not a production-ready application, it demonstrates core web development concepts and modern tech stack implementation.
+
+## 🌟 Why I Built This
+- To practice the MERN stack (MongoDB, Express, React, Node.js)
+- To understand complex state management with Redux
+- To implement real-world features like authentication and booking systems
+- To explore third-party API integrations (maps, video calls)
+- To learn best practices in code organization and project structure
+
+## 🛠️ Practice Highlights
+**Implemented Features:**
+- JWT authentication system 🔑
+- Appointment scheduling with conflict checking ⏰
+- Doctor search with filters (specialization, availability) 🔍
+- Mock video consultation interface 📹
+- Responsive UI with Tailwind CSS 💅
+- Error handling and form validation 🚨
+
+**Technical Challenges Overcome:**
+- State synchronization between frontend and backend
+- Calendar slot management logic
+- Role-based routing (Patient/Doctor/Admin)
+- File upload for medical documents
+- Deployment configuration for full-stack app
+
+## 🧑💻 For Fellow Learners
+This project helped me understand:
+- How to structure medium-complexity applications
+- Importance of proper API documentation
+- Effective error handling strategies
+- Performance optimization techniques
+- Testing methodologies (unit/integration tests)
+
+## 🚧 Project Structure
 ```bash
-git clone https://github.com/yourusername/prescripto.git
-cd prescripto-client
-
+├── client/            # React frontend
+│   ├── src/
+│   │   ├── features/  # Redux slices
+│   │   ├── routes/    # Protected routes
+│   │   └── utils/     # Helpers & config
+│
+├── server/            # Express backend
+│   ├── controllers/
+│   ├── models/        # MongoDB schemas
+│   ├── routes/
+│   └── middleware/    # Auth & validation
+│
+└── docs/              # Project documentation
