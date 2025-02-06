@@ -17,14 +17,7 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
 
 - **Appointment Management**
   - Real-time availability checking
-  - Online booking with multiple consultation types (Video/Clinic)
   - Appointment reminders via SMS/Email
-  - Prescription refill requests
-
-- **Virtual Clinic**
-  - Wait room functionality
-  - File sharing for medical documents
-  - Post-consultation feedback system
 
 ### For Doctors 🩺
 - **Schedule Management**
@@ -40,8 +33,6 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
   - Patient communication portal
 
 ### Core System ⚙️
-- Role-based access control
-- HIPAA-compliant data storage
 - Real-time notifications
 - Multi-device responsive design
 
@@ -65,9 +56,8 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
 
 ## 🌟 Why I Built This
 - To practice the MERN stack (MongoDB, Express, React, Node.js)
-- To understand complex state management with Redux
+- To understand complex state management with React
 - To implement real-world features like authentication and booking systems
-- To explore third-party API integrations (maps, video calls)
 - To learn best practices in code organization and project structure
 
 ## 🛠️ Practice Highlights
@@ -75,7 +65,6 @@ Prescripto is a comprehensive telehealth platform connecting patients with healt
 - JWT authentication system 🔑
 - Appointment scheduling with conflict checking ⏰
 - Doctor search with filters (specialization, availability) 🔍
-- Mock video consultation interface 📹
 - Responsive UI with Tailwind CSS 💅
 - Error handling and form validation 🚨
 
@@ -92,7 +81,6 @@ This project helped me understand:
 - Importance of proper API documentation
 - Effective error handling strategies
 - Performance optimization techniques
-- Testing methodologies (unit/integration tests)
 
 ## 🚧 Project Structure
 ```bash
